@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 43096130}
   - component: {fileID: 43096132}
   - component: {fileID: 43096131}
+  - component: {fileID: 43096133}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -288,6 +289,20 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &43096133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43096128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9985a01e4b2c6554dbc7115cd8cec1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playermove
+  speed: 5
+  horizontal: 0
 --- !u!1 &661509081
 GameObject:
   m_ObjectHideFlags: 0
