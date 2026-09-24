@@ -42,5 +42,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: layer das coisas
+    uniqueID: 1176594681
+    locked: 0
+  - name: layer casa
+    uniqueID: 2320483233
+    locked: 0
   m_RenderingLayers:
   - Default
