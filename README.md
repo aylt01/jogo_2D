@@ -8,3 +8,6 @@ jogo 2D
 
 27/08 introdução a game desing,vimos videos e etc
 e vamos preencher o GDD para os jogos;
+
+22/09 progamamos o movimento do player o pulo e arrumamos bug, importante para o jogo do mundo senai
+
