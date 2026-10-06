@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -32,7 +33,10 @@ public class Player : MonoBehaviour
         {
             isGrounded = true; // vai saber quando esta no chao
         }
-
+        if (collision.gameObject.CompareTag("Dano"))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
