@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class MenuScene : MonoBehaviour
 {
     public GameObject painelPause;
@@ -9,11 +8,11 @@ public class MenuScene : MonoBehaviour
     bool pausado = false;
     bool jogoAcabou = false;
 
+
     void Start()
     {
         painelPause.SetActive(false);
         painelGameOver.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -41,18 +40,21 @@ public class MenuScene : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+
     public void Continuar()
     {
         pausado = false;
         painelPause.SetActive(false);
         Time.timeScale = 1f;
     }
-    public void MostrarGamerOver()
+
+    public void MostrarGameOver()
     {
         jogoAcabou = true;
         painelGameOver.SetActive(true);
         Time.timeScale = 0f;
     }
+
     public void Reiniciar()
     {
         Time.timeScale = 1f;

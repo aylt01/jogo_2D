@@ -1,69 +1,54 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class Player : MonoBehaviour
 {
-    public float speed = 3f;
-    public float jumpForce = 5f;
-    public float wallJumpHorizontal = 5f;
+    public float speed = 5f;
 
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
-    private bool isGraunded = false;
-    private bool isOnWall = false;
-
-    // -1 = parede à direita
-    //  1 = parede à esquerda
-    private int wallDirection = 0;
+    private bool isGrounded = false;
 
     public MenuScene menu;
 
-    Animator animator;
-    SpriteRenderer spriteRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
+    // Update is called once per frame
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveHorizontal = Input.GetAxis("Horizontal"); //Vai reconhecer o movimento horizontal
 
-        // Movimento normal
-        rb.linearVelocity = new Vector2(
-            moveHorizontal * speed,
-            rb.linearVelocity.y
-        );
+        rb.linearVelocity = new Vector2(moveHorizontal * speed, rb.linearVelocity.y); //Vai aplicar a velocidade horizontal ao Rigidbody2D
 
-        
-        
-        // Pulo normal
-        if (Input.GetKeyDown(KeyCode.Space) && isGraunded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.linearVelocity = new Vector2(
-                rb.linearVelocity.x,
-                jumpForce
-            );
+            rb.AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse); //Vai aplicar uma força vertical ao Rigidbody2D
         }
 
-        // WALL JUMP
-        if (Input.GetKeyDown(KeyCode.Space) && isOnWall && !isGraunded)
-        {
-            rb.linearVelocity = new Vector2(
-                wallDirection * wallJumpHorizontal,
-                jumpForce
-            );
+    }
 
-            isOnWall = false;
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true; //Vai reconhecer quando o jogador estiver no chão
+        }
+
+        if (collision.gameObject.CompareTag("Dano"))
+        {
+            menu.MostrarGameOver(); //Vai mostrar o painel de Game Over quando o jogador colidir com um objeto com a tag "Dano"
         }
     }
 
-
-    public void morte()
+    void OnCollisionExit2D(Collision2D collision)
     {
-        menu.MostrarGamerOver();
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false; //Vai reconhecer quando o jogador não estiver no chão
+        }
     }
 }

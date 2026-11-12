@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f3cedfbbf2bda0144a4f061d057b34e4
+guid: f0d2f0d914ba6b14094414b6c450e123
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7133240602028734467
-    second: "Game Over no Calabou\xE7o Sombrio 1_0"
+      213: -2586985182210113934
+    second: Cavaleiro Diante do Castelo Sombrio_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Game Over no Calabou\xE7o Sombrio 1_0"
+      name: Cavaleiro Diante do Castelo Sombrio_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 308f055b88c5ef260800000000000000
-      internalID: 7133240602028734467
+      spriteID: 27eba27eeae291cd0800000000000000
+      internalID: -2586985182210113934
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Game Over no Calabou\xE7o Sombrio 1_0": 7133240602028734467
+      Cavaleiro Diante do Castelo Sombrio_0: -2586985182210113934
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

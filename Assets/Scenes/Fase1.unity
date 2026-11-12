@@ -885,8 +885,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   speed: 5
-  jumpForce: 5
-  wallJumpHorizontal: 5
+  dashForce: 15
+  dashDuration: 0.2
+  dashCooldown: 1
+  temChave: 0
   menu: {fileID: 0}
 --- !u!114 &43096135
 MonoBehaviour:
@@ -4366,7 +4368,7 @@ GameObject:
   - component: {fileID: 1152139268}
   m_Layer: 0
   m_Name: player
-  m_TagString: Ground
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4776,7 +4778,7 @@ GameObject:
   - component: {fileID: 1317632991}
   m_Layer: 0
   m_Name: player (2)
-  m_TagString: Ground
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5925,8 +5927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7fa95592b34fa6429a1fa6dcd0a8d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuScene
-  painelPause: {fileID: 1665401391}
-  painelGameOver: {fileID: 0}
+  pGameover: {fileID: 1665401391}
+  pPause: {fileID: 1613586525}
 --- !u!4 &1776978498
 Transform:
   m_ObjectHideFlags: 0
