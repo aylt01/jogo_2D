@@ -8,6 +8,7 @@ TagManager:
   - Dano
   - bau
   - ground
+  - dano
   layers:
   - Default
   - TransparentFX
