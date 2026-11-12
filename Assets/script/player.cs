@@ -3,46 +3,81 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 3f;
+    public float jumpForce = 5f;
+    public float wallJumpHorizontal = 5f;
 
-    private Rigidbody2D rb;
+    Rigidbody2D rb;
+
+    private bool isGraunded = false;
+    private bool isOnWall = false;
+
+    // -1 = parede à direita
+    //  1 = parede à esquerda
+    private int wallDirection = 0;
+
+    public MenuScene menu;
+
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    private bool isGrounded = false;
 
-    // Update is called once per frame
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal"); //Vai reconhecer o movimento horizontal
+        float moveHorizontal = Input.GetAxis("Horizontal");
 
-        rb.linearVelocity = new Vector2(moveHorizontal * speed, rb.linearVelocity.y); //Vai aplicar a velocidade horizontal ao Rigidbody2D
+        // Movimento normal
+        rb.linearVelocity = new Vector2(
+            moveHorizontal * speed,
+            rb.linearVelocity.y
+        );
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        // Animação
+        if (moveHorizontal < 0)
         {
-            rb.AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse); //Vai aplicar uma força vertical ao Rigidbody2D
+            animator.SetInteger("trans", 1);
+            spriteRenderer.flipX = true;
+        }
+        else if (moveHorizontal > 0)
+        {
+            animator.SetInteger("trans", 1);
+            spriteRenderer.flipX = false;
+        }
+        else
+        {
+            animator.SetInteger("trans", 0);
         }
 
+        // Pulo normal
+        if (Input.GetKeyDown(KeyCode.Space) && isGraunded)
+        {
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+                jumpForce
+            );
+        }
+
+        // WALL JUMP
+        if (Input.GetKeyDown(KeyCode.Space) && isOnWall && !isGraunded)
+        {
+            rb.linearVelocity = new Vector2(
+                wallDirection * wallJumpHorizontal,
+                jumpForce
+            );
+
+            isOnWall = false;
+        }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+
+    public void morte()
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true; // vai saber quando esta no chao
-        }
-        if (collision.gameObject.CompareTag("Dano"))
-        {
-            SceneManager.LoadScene(0);
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-            if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false; //vai saber quando nao esta no chao
-        }
+        menu.MostrarGamerOver();
     }
 }
