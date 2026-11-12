@@ -38,22 +38,8 @@ public class Player : MonoBehaviour
             rb.linearVelocity.y
         );
 
-        // Animação
-        if (moveHorizontal < 0)
-        {
-            animator.SetInteger("trans", 1);
-            spriteRenderer.flipX = true;
-        }
-        else if (moveHorizontal > 0)
-        {
-            animator.SetInteger("trans", 1);
-            spriteRenderer.flipX = false;
-        }
-        else
-        {
-            animator.SetInteger("trans", 0);
-        }
-
+        
+        
         // Pulo normal
         if (Input.GetKeyDown(KeyCode.Space) && isGraunded)
         {
