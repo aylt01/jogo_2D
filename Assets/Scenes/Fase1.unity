@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 43096135}
   - component: {fileID: 43096136}
   - component: {fileID: 43096137}
+  - component: {fileID: 43096138}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Player
@@ -245,8 +246,7 @@ Transform:
   m_LocalPosition: {x: 31.5, y: -6.7, z: 0}
   m_LocalScale: {x: 0.17464508, y: 0.17924175, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1972174741}
+  m_Children: []
   m_Father: {fileID: 1829302384}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &43096130
@@ -922,6 +922,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106225eca2f8f6a478193fb73c847dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::habilidade
+--- !u!114 &43096138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43096128}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2941d4e4f65f545a5532f6372a778d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFolow
+  alvo: {fileID: 0}
+  distancia: {x: 0, y: 0, z: -10}
+  movimentoSuave: 1
+  velocidade: 5
 --- !u!1 &59049945
 GameObject:
   m_ObjectHideFlags: 0
@@ -6105,6 +6121,7 @@ GameObject:
   - component: {fileID: 1972174740}
   - component: {fileID: 1972174739}
   - component: {fileID: 1972174742}
+  - component: {fileID: 1972174743}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6180,11 +6197,11 @@ Transform:
   m_GameObject: {fileID: 1972174738}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.87953, y: -1.06636, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 29.94872, y: -5.824776, z: -10}
+  m_LocalScale: {x: 0.17464508, y: 0.17924175, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 43096129}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1972174742
 MonoBehaviour:
@@ -6230,6 +6247,22 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1972174743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972174738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2941d4e4f65f545a5532f6372a778d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFolow
+  alvo: {fileID: 43096129}
+  distancia: {x: 0, y: 0, z: -10}
+  movimentoSuave: 1
+  velocidade: 5
 --- !u!1 &2046676969
 GameObject:
   m_ObjectHideFlags: 0
@@ -6371,6 +6404,7 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1972174741}
   - {fileID: 661509082}
   - {fileID: 1829302384}
   - {fileID: 1010185365}
